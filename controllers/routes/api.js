@@ -26,25 +26,46 @@ router.get(`/range`, async (_, res) => {
         const dbWorkouts = await Workout.aggregate([
             {
                 $addFields: {
-                    totalDuration: { $sum: "$exercises.duration" },
-                    totalWeight: { $sum: "$exercises.weight" },
-                },
-            },
+                    totalDuration: {
+                        $sum: "$exercises.duration"
+                    },
+                    totalWeight: {
+                        $sum: "$exercises.weight"
+                    }
+                }
+            }
         ])
             .sort({
                 day: -1
             })
             .limit(7);
         res.status(200).json(dbWorkouts);
+
     } catch (error) {
         res.status(400).json(error);
     }
 });
 
-
-router.post("/", async (req, res) => {
+router.put("/:id", async ({ params, body }, res) => {
     try {
-        const workoutToAdd = await Workout.create(req.body);
+        const exerciseToAdd = await Workout.findOneAndUpdate(
+            { _id: params.id },
+            {
+                $push: {
+                    exercises: body
+                },
+            },
+            { new: true }
+        );
+        res.status(200).json(exerciseToAdd);
+    } catch (error) {
+        res.json(error);
+    }
+});
+
+router.post("/", async ({ body }, res) => {
+    try {
+        const workoutToAdd = await Workout.create(body);
         res.status(200).json(workoutToAdd);
     } catch (error) {
         res.json(error);
