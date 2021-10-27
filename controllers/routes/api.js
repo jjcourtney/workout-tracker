@@ -6,7 +6,9 @@ router.get(`/`, async (_, res) => {
         const workouts = await Workout.aggregate([
             {
                 $addFields: {
-                    totalDuration: { $sum: "$exercises.duration" },
+                    totalDuration: {
+                        $sum: "$exercises.duration"
+                    },
                 },
             },
         ])
