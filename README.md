@@ -15,7 +15,7 @@ An app to track your workouts and see the progress made. Using mongoose to manag
 - [Questions](#questions)
 - [Languages](#languages)
 - [Instructions for making contributions](#contributions)
-- [Tests](#tests)
+- [Screenshots](#screenshots)
 
 ## Installation
 
@@ -51,7 +51,7 @@ https://github.com/jjcourtney/
 
 Clone and create a new PR
 
-## Screenshot
+## Screenshots
 
 ![Screenshot](./assets/main.png)
 ![Screenshot](./assets/dashboard.png)
