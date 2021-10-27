@@ -4,6 +4,9 @@
 
 An app to track your workouts and see the progress made. Using mongoose to manage a mongoDB database.
 
+- Deployed at https://workout-tracker-jjcourtney.herokuapp.com/
+- Repo https://github.com/jjcourtney/workout-tracker
+
 ## Table of contents
 
 - [Installation](#installation)
@@ -47,3 +50,8 @@ https://github.com/jjcourtney/
 ### Instructions on how to make contributions
 
 Clone and create a new PR
+
+## Screenshot
+
+![Screenshot](./assets/main.png)
+![Screenshot](./assets/dashboard.png)
